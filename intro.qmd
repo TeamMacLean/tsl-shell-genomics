@@ -45,9 +45,11 @@ In this lesson you will learn how to use the command line interface to move arou
 
 ## How to access the shell
 
-On a Mac or Linux machine, you can access a shell through a program called "Terminal", which is already available on your computer. The Terminal is a window into which we will type commands. If you're using Windows, you need to use a separate program to access the shell. You can use [MobaXterm](https://mobaxterm.mobatek.net/), a terminal for Windows, that is already installed on your machine.
+The Terminal is a window into which we will use to type commands in.
 
 ### Windows {#sec- collapse="true"}
+
+If you're using Windows, you need to use a separate program to access the shell. You can use [MobaXterm](https://mobaxterm.mobatek.net/), a terminal for Windows, that is already installed on your machine.
 
 1.  Click on the MobaXterm icon on your desktop.
 2.  Select `Start local terminal`
@@ -58,9 +60,21 @@ On a Mac or Linux machine, you can access a shell through a program called "Term
 
 ![](images/mobaxterm-terminal.png){alt="MobaXterm local terminal" fig-alt="Mobaxterm terminal screen capture" width="100%"}
 
-To save time, we are going to be working on a remote server where all the necessary data and software available. When we say a 'remote sever', we are talking about a computer that is not the one you are working on right now. You will access the remote server where everything is prepared for the lesson. We will learn the basics of the shell by manipulating some data files. Some of these files are very large , and would take time to download to your computer. We will also be using several bioinformatic packages in later lessons and installing all of the software would take up time even more time. A 'ready-to-go' sever let's us focus on learning.
+### MacOS {collapse="true"}
+
+On a Mac or Linux machine, you can access a shell through a program called "Terminal", which is already available on your computer.
+
+![](images/mac-launchpad-term.png){alt="MobaXterm local terminal" fig-alt="Lauchpad" width="100%"}
+
+::: {#mac-terminals layout-ncol="2"}
+![Terminal](images/mac-terminal.png)
+
+![iTerm](images/mac-iterm.png)
+:::
 
 ## How to access the remote server
+
+To save time, we are going to be working on a remote server where all the necessary data and software available. When we say a 'remote sever', we are talking about a computer that is not the one you are working on right now. You will access the remote server where everything is prepared for the lesson. We will learn the basics of the shell by manipulating some data files. Some of these files are very large , and would take time to download to your computer. We will also be using several bioinformatic packages in later lessons and installing all of the software would take up time even more time. A 'ready-to-go' sever let's us focus on learning.
 
 ![](images/hpc-overview.png)
 
@@ -72,21 +86,29 @@ ssh [username]@hpc.nbi.ac.uk
 
 You must then input your password.
 
-![](images/ssh-hpc-nbi.png)
+::: {#ssh layout-ncol="2"}
+![Windows](images/ssh-hpc-nbi.png)
+
+![MacOS](images/ssh-hpc-nbi-mac.png)
+:::
 
 ::: {.callout-note collapse="true"}
 ## Save your password for later
 
 MobaXterm will offer for you to save your password. It is up to you to do so.
 
-![](images/password-save.png){fig-align="center" width="500"}
+![Windows](images/password-save.png){fig-align="center" width="500"}
 
-![](images/master-password.png){fig-align="center" width="500"}
+![MacOS](images/master-password.png){fig-align="center" width="500"}
 :::
 
 After entering you password, you will be logged in the server and see the welcome message as seen in the screen capture below:
 
-![](images/welcome-to-nbi-hpc.png)
+::: {#welcome-hpc layout-ncol="2"}
+![Windows](images/welcome-to-nbi-hpc.png)
+
+![MacOS](images/welcome-to-nbi-hpc-mac.png)
+:::
 
 This welcome message provides a lot of information about the remote server that you're logging into. We're not going to use most of this information for our workshop, so you can clear your screen using the `clear` command.
 
