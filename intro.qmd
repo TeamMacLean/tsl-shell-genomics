@@ -171,10 +171,10 @@ $ ls
 
 ### Copy directory
 
-Our home directory is empty. Let's copy a directory called `shell_data` from the home directory of user `jegoussc` using the command `cp` for "**c**o**p**y". The flag `-r` stands for "recursive" and specifies that we want to copy the full content of the directory `shell_data`:
+Our home directory is empty. Let's copy a directory called `shell_data` from the `dc_workshop` directory using the command `cp` for "**c**o**p**y". The flag `-r` stands for "recursive" and specifies that we want to copy the full content of the directory `shell_data`:
 
 ``` bash
-$ cp -r /hpc-home/jegoussc/shell_data/ /hpc-home/[username]/
+$ cp -r /tsl/data/dc_workshop/shell_data/ /hpc-home/[username]/
 ```
 
 ### Change directory
@@ -193,11 +193,11 @@ $ pwd
 
 ### Flags
 
-Earlier, ee used the flag `-r` with the `cp` command. Let's have a look at the content of the directory now. We can make the `ls` output more comprehensible by using the **flag** `-F`, which tells `ls` to add a trailing `/` to the names of directories:
+Earlier, we used the flag `-r` with the `cp` command. Let's have a look at the content of the directory now. We can make the `ls` output more comprehensible by using the **flag** `-F`, which tells `ls` to add a trailing `/` to the names of directories:
 
 ``` bash
 $ ls -F
-sra_metadata/  untrimmed_fastq/
+metadata.csv*  SRA_reads/  untrimmed_fastq/
 ```
 
 Anything with a "/" after it is a directory. Things with a "\*" after them are programs. If there are no decorations, it's a file.
@@ -221,7 +221,16 @@ Use the `-l` option for the `ls` command to display more information for each it
 ::: {.callout-caution collapse="true" icon="false"}
 ## Solution
 
+### Bash
     $ ls -l
+    
+### Output
+
+	$ total 112
+	$ -rwxrwx--- 1 taz23vul TSL_20 3797 Sep 22 12:21 metadata.csv
+	$ drwxrwx--- 2 taz23vul TSL_20  667 Sep 22 12:22 SRA_reads
+	$ drwxrwx--- 2 taz23vul TSL_20   33 Sep 22 12:36 untrimmed_fastq
+
 :::
 
 No one can possibly learn all of these arguments, that's what the manual page is for. You can (and should) refer to the manual page or other help files as needed.

@@ -91,7 +91,7 @@ The `-a` option is short for `all` and says that it causes `ls` to "not ignore e
 
 ``` bash
 $ ls -a
-.  ..  .hidden  sra_metadata  untrimmed_fastq
+.  ..  .DS_Store  .hidden  metadata.csv  SRA_reads  untrimmed_fastq
 ```
 
 The name of the hidden directory is `.hidden`. We can navigate to that directory using `cd`.
@@ -127,7 +127,7 @@ Then enter the command:
 
 ``` bash
 $ ls shell_data
-sra_metadata  untrimmed_fastq
+metadata.csv  SRA_reads  untrimmed_fastq
 ```
 
 This will list the contents of the `shell_data` directory without you needing to navigate there. The `cd` command works in a similar way.

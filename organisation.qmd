@@ -73,7 +73,7 @@ Use the command like to make the following directories:
 -   `dc_workshop/results`
 :::
 
-::: {.callout-caution icon="false"}
+::: {.callout-caution collapse="true" icon="false"}
 ## Solution
 
 ``` bash
@@ -132,7 +132,7 @@ $ history | tail -n 7
 Using your knowledge of the shell, use the append redirect `>>` to create a file called `dc_workshop_log_XXXX_XX_XX.sh` (Use the four-digit year, two-digit month, and two digit day, e.g. `dc_workshop_log_2021_10_27.sh`)
 :::
 
-::: {.callout-caution icon="false"}
+::: {.callout-caution collapse="true" icon="false"}
 ## Solution
 
 ``` bash
