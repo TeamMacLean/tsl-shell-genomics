@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.361">
+<meta name="generator" content="quarto-1.3.353">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Shell genomics - 5&nbsp; Writing Scripts and Working with Data</title>
+<title>Shell Genomics - 5&nbsp; Writing Scripts and Working with Data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-q { quotes: "“" "”" "‘" "’"; }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
@@ -92,8 +91,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-submit-button-title": "Submit"
   }
 }</script>
 <script async="" src="https://hypothes.is/embed.js"></script>
@@ -113,7 +111,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./scripting.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Writing Scripts and Working with Data</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -125,7 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Shell genomics</a> 
+      <a href="./">Shell Genomics</a> 
         <div class="sidebar-tools-main">
     <div class="dropdown">
       <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
@@ -221,29 +219,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#moving-files-between-your-laptop-and-the-server" id="toc-moving-files-between-your-laptop-and-the-server" class="nav-link" data-scroll-target="#moving-files-between-your-laptop-and-the-server"><span class="header-section-number">5.4.2</span> <strong>Moving files between your laptop and the server</strong></a></li>
   </ul></li>
   <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">5.5</span> Summary</a></li>
-  <li><a href="#sec-introducing-the-shell" id="toc-sec-introducing-the-shell" class="nav-link" data-scroll-target="#sec-introducing-the-shell"><span class="header-section-number">6</span> Introducing the shell</a>
-  <ul class="collapse">
-  <li><a href="#what-is-a-shell-and-why-should-i-care" id="toc-what-is-a-shell-and-why-should-i-care" class="nav-link" data-scroll-target="#what-is-a-shell-and-why-should-i-care"><span class="header-section-number">6.1</span> What is a shell and why should I care?</a></li>
-  <li><a href="#how-to-access-the-shell" id="toc-how-to-access-the-shell" class="nav-link" data-scroll-target="#how-to-access-the-shell"><span class="header-section-number">6.2</span> How to access the shell</a>
-  <ul class="collapse">
-  <li><a href="#sec-" id="toc-sec-" class="nav-link" data-scroll-target="#sec-"><span class="header-section-number">6.2.1</span> Windows</a></li>
-  <li><a href="#macos" id="toc-macos" class="nav-link" data-scroll-target="#macos"><span class="header-section-number">6.2.2</span> MacOS</a></li>
-  </ul></li>
-  <li><a href="#how-to-access-the-remote-server" id="toc-how-to-access-the-remote-server" class="nav-link" data-scroll-target="#how-to-access-the-remote-server"><span class="header-section-number">6.3</span> How to access the remote server</a></li>
-  <li><a href="#navigating-your-file-system" id="toc-navigating-your-file-system" class="nav-link" data-scroll-target="#navigating-your-file-system"><span class="header-section-number">6.4</span> Navigating your file system</a>
-  <ul class="collapse">
-  <li><a href="#prompt" id="toc-prompt" class="nav-link" data-scroll-target="#prompt"><span class="header-section-number">6.4.1</span> Prompt</a></li>
-  <li><a href="#print-working-directory" id="toc-print-working-directory" class="nav-link" data-scroll-target="#print-working-directory"><span class="header-section-number">6.4.2</span> Print working directory</a></li>
-  <li><a href="#listing" id="toc-listing" class="nav-link" data-scroll-target="#listing"><span class="header-section-number">6.4.3</span> Listing</a></li>
-  <li><a href="#make-new-directory" id="toc-make-new-directory" class="nav-link" data-scroll-target="#make-new-directory"><span class="header-section-number">6.4.4</span> Make new directory</a></li>
-  <li><a href="#copy-directory" id="toc-copy-directory" class="nav-link" data-scroll-target="#copy-directory"><span class="header-section-number">6.4.5</span> Copy directory</a></li>
-  <li><a href="#change-directory" id="toc-change-directory" class="nav-link" data-scroll-target="#change-directory"><span class="header-section-number">6.4.6</span> Change directory</a></li>
-  <li><a href="#flags" id="toc-flags" class="nav-link" data-scroll-target="#flags"><span class="header-section-number">6.4.7</span> Flags</a></li>
-  <li><a href="#manuals" id="toc-manuals" class="nav-link" data-scroll-target="#manuals"><span class="header-section-number">6.4.8</span> Manuals</a></li>
-  <li><a href="#tab-completion" id="toc-tab-completion" class="nav-link" data-scroll-target="#tab-completion"><span class="header-section-number">6.4.11</span> Tab Completion</a></li>
-  </ul></li>
-  <li><a href="#summary-1" id="toc-summary-1" class="nav-link" data-scroll-target="#summary-1"><span class="header-section-number">6.5</span> Summary</a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
@@ -339,14 +314,14 @@ Which Editor?
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>When we say, <q><code>nano</code> is a text editor,</q> we really do mean <q>text</q>: <code>nano</code> can only work with plain character data, not tables, images, or any other human-friendly media. We use <code>nano</code> in examples because it is one of the least complex text editors. However, because of this trait, <code>nano</code> may not be powerful enough or flexible enough for the work you need to do after this workshop. On Unix systems (such as Linux and Mac OS X), many programmers use <a href="http://www.gnu.org/software/emacs/">Emacs</a> or <a href="http://www.vim.org/">Vim</a> (both of which require more time to learn), or a graphical editor such as <a href="http://projects.gnome.org/gedit/">Gedit</a>. On Windows, you may wish to use <a href="http://notepad-plus-plus.org/">Notepad++</a>. Windows also has a built-in editor called <code>notepad</code> that can be run from the command line in the same way as <code>nano</code> for the purposes of this lesson.</p>
-<p>No matter what editor you use, you will need to know the default location where it searches for files and where files are saved. If you start an editor from the shell, it will (probably) use your current working directory as its default location. If you use your computer’s start menu, the editor may want to save files in your desktop or documents directory instead. You can change this by navigating to another directory the first time you <q>Save As…</q></p>
+<p>When we say, “<code>nano</code> is a text editor,” we really do mean “text”: <code>nano</code> can only work with plain character data, not tables, images, or any other human-friendly media. We use <code>nano</code> in examples because it is one of the least complex text editors. However, because of this trait, <code>nano</code> may not be powerful enough or flexible enough for the work you need to do after this workshop. On Unix systems (such as Linux and Mac OS X), many programmers use <a href="http://www.gnu.org/software/emacs/">Emacs</a> or <a href="http://www.vim.org/">Vim</a> (both of which require more time to learn), or a graphical editor such as <a href="http://projects.gnome.org/gedit/">Gedit</a>. On Windows, you may wish to use <a href="http://notepad-plus-plus.org/">Notepad++</a>. Windows also has a built-in editor called <code>notepad</code> that can be run from the command line in the same way as <code>nano</code> for the purposes of this lesson.</p>
+<p>No matter what editor you use, you will need to know the default location where it searches for files and where files are saved. If you start an editor from the shell, it will (probably) use your current working directory as its default location. If you use your computer’s start menu, the editor may want to save files in your desktop or documents directory instead. You can change this by navigating to another directory the first time you “Save As…”</p>
 </div>
 </div>
 </div>
 <p>Let’s type in a few lines of text. Describe what the files in this directory are or what you’ve been doing with them. Once we’re happy with our text, we can press Ctrl-O (press the Ctrl or Control key and, while holding it down, press the O key) to write our data to disk. You’ll be asked what file we want to save this to: press Return to accept the suggested default of <code>README.txt</code>.</p>
 <p>Once our file is saved, we can use Ctrl-X to quit the <code>nano</code> editor and return to the shell.</p>
-<p>The Control key is also called the <q>Ctrl</q> key. There are various ways in which using the Control key may be described. For example, you may see an instruction to press the Ctrl key and, while holding it down, press the X key, described as any of:</p>
+<p>The Control key is also called the “Ctrl” key. There are various ways in which using the Control key may be described. For example, you may see an instruction to press the Ctrl key and, while holding it down, press the X key, described as any of:</p>
 <ul>
 <li><code>Control-X</code></li>
 <li><code>Control+X</code></li>
@@ -406,7 +381,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>We introduced the <code>-v</code> option, now we are using <code>-h</code> to <q>Suppress the prefixing of file names on output</q> according to the documentation shown by <code>man grep</code>.</p>
+<p>We introduced the <code>-v</code> option, now we are using <code>-h</code> to “Suppress the prefixing of file names on output” according to the documentation shown by <code>man grep</code>.</p>
 </div>
 </div>
 <p>Type your <code>grep</code> command into the file and save it as before. Be careful that you did not add the <code>$</code> at the beginning of the line.</p>
@@ -487,8 +462,8 @@ No internet on HPC
 <h3 data-number="5.4.1" class="anchored" data-anchor-id="getting-data-from-the-cloud"><span class="header-section-number">5.4.1</span> <strong>Getting data from the cloud</strong></h3>
 <p>There are two programs that will download data from a remote server to your local (or remote) machine: <code>wget</code> and <code>curl</code>. They were designed to do slightly different tasks by default, so you’ll need to give the programs somewhat different options to get the same behaviour, but they are mostly interchangeable.</p>
 <ul>
-<li><p><code>wget</code> is short for <q>world wide web get</q>, and it’s basic function is to <em>download</em> web pages or data at a web address.</p></li>
-<li><p><code>curl</code> is a pun, it is supposed to be read as <q>see URL</q>, so its basic function is to <em>display</em> webpages or data at a web address.</p></li>
+<li><p><code>wget</code> is short for “world wide web get”, and it’s basic function is to <em>download</em> web pages or data at a web address.</p></li>
+<li><p><code>curl</code> is a pun, it is supposed to be read as “see URL”, so its basic function is to <em>display</em> webpages or data at a web address.</p></li>
 </ul>
 <p>Which one you need to use mostly depends on your operating system, as most computers will only have one or the other installed by default.</p>
 <p>Let’s say you want to download some data from Ensembl. We’re going to download a very small tab-delimited file that just tells us what data is available on the Ensembl bacteria server. Before we can start our download, we need to know whether we’re using <code>curl</code> or <code>wget</code>.</p>
@@ -516,8 +491,8 @@ No internet on HPC
 <p>It is possible to access the NBI server using the Windows navigation system. To do so, you must map the network drive:</p>
 <ol type="1">
 <li>Access your computer (by clicking on the computer icon on your desktop) .</li>
-<li>Under the <q>Computer</q> tab, use the pull-down menu <q>Map network drive</q> and select <q>Map network drive</q>. This will open a pop-up window asking what network drive you would like to map</li>
-<li>Under <q>Folder</q> enter <code>\\tsl-hpc-data\HPC-Home</code> and click <q>Finish</q>.</li>
+<li>Under the “Computer” tab, use the pull-down menu “Map network drive” and select “Map network drive”. This will open a pop-up window asking what network drive you would like to map</li>
+<li>Under “Folder” enter <code>\\tsl-hpc-data\HPC-Home</code> and click “Finish”.</li>
 <li>You now have access to HPC-Home through the Windows navigation system.</li>
 </ol>
 <div id="fig-access-hpc" class="quarto-layout-panel">
@@ -583,351 +558,6 @@ Key points
 </div>
 
 
-</section>
-<section id="sec-introducing-the-shell" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> Introducing the shell</h1>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-⏳ Time
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li>Teaching: 20 min</li>
-<li>Exercises: 10 min</li>
-</ul>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-🤔 Questions
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li>What is a command shell and why would I use one?</li>
-<li>How can I move around on my computer?</li>
-<li>How can I see what files and directories I have?</li>
-<li>How can I specify the location of a file or directory on my computer?</li>
-</ul>
-</div>
-</div>
-<div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-🎯 Objectives
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li>Describe key reasons for learning shell.</li>
-<li>Navigate your file system using the command line.</li>
-<li>Access and read help files for <code>bash</code> programs and use help files to identify useful command options.</li>
-<li>Demonstrate the use of tab completion, and explain its advantages.</li>
-</ul>
-</div>
-</div>
-<section id="what-is-a-shell-and-why-should-i-care" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="what-is-a-shell-and-why-should-i-care"><span class="header-section-number">6.1</span> What is a shell and why should I care?</h2>
-<p>A <em>shell</em> is a computer program that presents a command line interface which allows you to control your computer using commands entered with a keyboard instead of controlling graphical user interfaces (GUIs) with a mouse/keyboard/touchscreen combination.</p>
-<p>There are many reasons to learn about the shell:</p>
-<ul>
-<li><p>Many bioinformatics tools can only be used through a command line interface. Many more have features and parameter options which are not available in the GUI. BLAST is an example. Many of the advanced functions are only accessible to users who know how to use a shell.</p></li>
-<li><p>The shell makes your work less boring. In bioinformatics you often need to repeat tasks with a large number of files. With the shell, you can automate those repetitive tasks and leave you free to do more exciting things.</p></li>
-<li><p>The shell makes your work less error-prone. When humans do the same thing a hundred different times (or even ten times), they’re likely to make a mistake. Your computer can do the same thing a thousand times with no mistakes.</p></li>
-<li><p>The shell makes your work more reproducible. When you carry out your work in the command-line (rather than a GUI), your computer keeps a record of every step that you’ve carried out, which you can use to re-do your work when you need to. It also gives you a way to communicate unambiguously what you’ve done, so that others can inspect or apply your process to new data.</p></li>
-<li><p>Many bioinformatic tasks require large amounts of computing power and can’t realistically be run on your own machine. These tasks are best performed using remote computers or cloud computing, which can only be accessed through a shell.</p></li>
-</ul>
-<p>In this lesson you will learn how to use the command line interface to move around in your file system.</p>
-</section>
-<section id="how-to-access-the-shell" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="how-to-access-the-shell"><span class="header-section-number">6.2</span> How to access the shell</h2>
-<p>The Terminal is a window into which we will use to type commands in.</p>
-<section id="sec-" class="level3" data-collapse="true" data-number="6.2.1">
-<h3 data-collapse="true" data-number="6.2.1" class="anchored" data-anchor-id="sec-"><span class="header-section-number">6.2.1</span> Windows</h3>
-<p>If you’re using Windows, you need to use a separate program to access the shell. You can use <a href="https://mobaxterm.mobatek.net/">MobaXterm</a>, a terminal for Windows, that is already installed on your machine.</p>
-<ol type="1">
-<li>Click on the MobaXterm icon on your desktop.</li>
-<li>Select <code>Start local terminal</code></li>
-</ol>
-<p><img src="images/windows-desktop.png" class="img-fluid" style="width:100.0%" alt="Windows Desktop Screencapture"></p>
-<p><img src="images/mobaxterm-opening.png" class="img-fluid" style="width:100.0%" alt="Mobaxterm opening screen capture"></p>
-<p><img src="images/mobaxterm-terminal.png" class="img-fluid" style="width:100.0%" alt="Mobaxterm terminal screen capture"></p>
-</section>
-<section id="macos" class="level3" data-collapse="true" data-number="6.2.2">
-<h3 data-collapse="true" data-number="6.2.2" class="anchored" data-anchor-id="macos"><span class="header-section-number">6.2.2</span> MacOS</h3>
-<p>On a Mac or Linux machine, you can access a shell through a program called <q>Terminal</q>, which is already available on your computer.</p>
-<p><img src="images/mac-launchpad-term.png" class="img-fluid" style="width:100.0%" alt="Lauchpad"></p>
-<div id="mac-terminals" class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/mac-terminal.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Terminal</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/mac-iterm.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">iTerm</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="how-to-access-the-remote-server" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="how-to-access-the-remote-server"><span class="header-section-number">6.3</span> How to access the remote server</h2>
-<p>To save time, we are going to be working on a remote server where all the necessary data and software available. When we say a <q>remote sever</q>, we are talking about a computer that is not the one you are working on right now. You will access the remote server where everything is prepared for the lesson. We will learn the basics of the shell by manipulating some data files. Some of these files are very large , and would take time to download to your computer. We will also be using several bioinformatic packages in later lessons and installing all of the software would take up time even more time. A <q>ready-to-go</q> sever let’s us focus on learning.</p>
-<p><img src="images/hpc-overview.png" class="img-fluid"></p>
-<p>The remote server is a <a href="https://en.wikipedia.org/wiki/Computer_cluster">computer cluster</a> used for high performance computing (HPC) for the Norwich BioScience Institutes (NBI). You can log into the remote server using the command <code>ssh</code>, your username and the address of the server <code>hpc.nbi.ac.uk</code> (make sure to replace <code>[username]</code> by your actual TSL username).</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="pp">[</span><span class="ss">username</span><span class="pp">]</span>@hpc.nbi.ac.uk</span></code></pre></div>
-<p>You must then input your password.</p>
-<div id="ssh" class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/ssh-hpc-nbi.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Windows</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/ssh-hpc-nbi-mac.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">MacOS</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Save your password for later
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-15" class="callout-15-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>MobaXterm will offer for you to save your password. It is up to you to do so.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/password-save.png" class="img-fluid figure-img" width="500"></p>
-<figcaption class="figure-caption">Windows</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/master-password.png" class="img-fluid figure-img" width="500"></p>
-<figcaption class="figure-caption">MacOS</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<p>After entering you password, you will be logged in the server and see the welcome message as seen in the screen capture below:</p>
-<div id="welcome-hpc" class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/welcome-to-nbi-hpc.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Windows</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/welcome-to-nbi-hpc-mac.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">MacOS</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<p>This welcome message provides a lot of information about the remote server that you’re logging into. We’re not going to use most of this information for our workshop, so you can clear your screen using the <code>clear</code> command.</p>
-<p>Type the word <code>clear</code> into the terminal and press the <code>Enter</code> key.</p>
-<p>This will scroll your screen down to give you a fresh screen and will make it easier to read. You haven’t lost any of the information on your screen. If you scroll up, you can see everything that has been output to your screen up until this point.</p>
-<div class="callout callout-style-default callout-tip callout-titled" data-collpase="true">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Hot-key combinations are shortcuts for performing common commands. The hot-key combination for clearing the console is <code>Ctrl+L</code>. Feel free to try it and see for yourself.</p>
-</div>
-</div>
-</section>
-<section id="navigating-your-file-system" class="level2" data-number="6.4">
-<h2 data-number="6.4" class="anchored" data-anchor-id="navigating-your-file-system"><span class="header-section-number">6.4</span> Navigating your file system</h2>
-<p>The part of the operating system that manages files and directories is called the <strong>file system</strong>. It organizes our data into files, which hold information, and directories (also called <q>folders</q>), which hold files or other directories.</p>
-<p>Several commands are frequently used to create, inspect, rename, and delete files and directories.</p>
-<section id="prompt" class="level3" data-number="6.4.1">
-<h3 data-number="6.4.1" class="anchored" data-anchor-id="prompt"><span class="header-section-number">6.4.1</span> Prompt</h3>
-<p>The dollar sign is a <strong>prompt</strong>, which shows us that the shell is waiting for input (other shell may use a different character as a prompt and may add information before the prompt). When typing commands, either from these lessons or from other sources, do not type the prompt, only the commands that follow it.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span></span></code></pre></div>
-</section>
-<section id="print-working-directory" class="level3" data-number="6.4.2">
-<h3 data-number="6.4.2" class="anchored" data-anchor-id="print-working-directory"><span class="header-section-number">6.4.2</span> Print working directory</h3>
-<p>Let’s find out where we are by running a command called <code>pwd</code> (which stands for <q><strong>p</strong>rint <strong>w</strong>orking <strong>d</strong>irectory</q>). At any moment, our <strong>current working directory</strong> is our current default directory, i.e., the directory that the computer assumes we want to run commands in, unless we explicitly specify something else. Here, the computer’s response is <code>/hpc-home/[username]</code>, which is the top level directory within our server:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pwd</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="ex">/hpc-home/[username]</span></span></code></pre></div>
-</section>
-<section id="listing" class="level3" data-number="6.4.3">
-<h3 data-number="6.4.3" class="anchored" data-anchor-id="listing"><span class="header-section-number">6.4.3</span> Listing</h3>
-<p>Let’s look at how our file system is organized. We can see what files and subdirectories are in this directory by running <code>ls</code>, which stands for <q>listing</q>:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls</span></code></pre></div>
-<p><code>ls</code> prints the names of the files and directories in the current directory in alphabetical order, arranged neatly into columns. We’ll be working within the <code>shell_data</code> subdirectory, and creating new subdirectories, throughout this workshop.</p>
-</section>
-<section id="make-new-directory" class="level3" data-number="6.4.4">
-<h3 data-number="6.4.4" class="anchored" data-anchor-id="make-new-directory"><span class="header-section-number">6.4.4</span> Make new directory</h3>
-<p>Let’s make a new directory (folder) called <code>shell_data</code> for today’s session using the command <code>mkdir</code> for <q><strong>m</strong>a<strong>k</strong>e <strong>dir</strong>ectory</q>:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mkdir shell_data</span></code></pre></div>
-<p>Now let’s see our new directory using the listing command <code>ls</code>:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls</span></code></pre></div>
-</section>
-<section id="copy-directory" class="level3" data-number="6.4.5">
-<h3 data-number="6.4.5" class="anchored" data-anchor-id="copy-directory"><span class="header-section-number">6.4.5</span> Copy directory</h3>
-<p>Our home directory is empty. Let’s copy a directory called <code>shell_data</code> from the <code>dc_workshop</code> directory using the command <code>cp</code> for <q><strong>c</strong>o<strong>p</strong>y</q>. The flag <code>-r</code> stands for <q>recursive</q> and specifies that we want to copy the full content of the directory <code>shell_data</code>:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cp <span class="at">-r</span> /tsl/data/dc_workshop/shell_data/ /hpc-home/<span class="pp">[</span><span class="ss">username</span><span class="pp">]</span>/</span></code></pre></div>
-</section>
-<section id="change-directory" class="level3" data-number="6.4.6">
-<h3 data-number="6.4.6" class="anchored" data-anchor-id="change-directory"><span class="header-section-number">6.4.6</span> Change directory</h3>
-<p>The command to change locations in our file system is <code>cd</code>, followed by a directory name to change our working directory. <code>cd</code> stands for <q><strong>c</strong>hange <strong>d</strong>irectory</q>.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd shell_data</span></code></pre></div>
-<p>We can also use the command <code>pwd</code> to print the current working directory:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pwd</span></code></pre></div>
-</section>
-<section id="flags" class="level3" data-number="6.4.7">
-<h3 data-number="6.4.7" class="anchored" data-anchor-id="flags"><span class="header-section-number">6.4.7</span> Flags</h3>
-<p>Earlier, we used the flag <code>-r</code> with the <code>cp</code> command. Let’s have a look at the content of the directory now. We can make the <code>ls</code> output more comprehensible by using the <strong>flag</strong> <code>-F</code>, which tells <code>ls</code> to add a trailing <code>/</code> to the names of directories:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-F</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="ex">metadata.csv*</span>  SRA_reads/  untrimmed_fastq/</span></code></pre></div>
-<p>Anything with a <q>/</q> after it is a directory. Things with a <q>*</q> after them are programs. If there are no decorations, it’s a file.</p>
-</section>
-<section id="manuals" class="level3" data-number="6.4.8">
-<h3 data-number="6.4.8" class="anchored" data-anchor-id="manuals"><span class="header-section-number">6.4.8</span> Manuals</h3>
-<p><code>ls</code> has lots of other options. To find out what they are, we can type:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> man ls</span></code></pre></div>
-<p><code>man</code> (short for <q><strong>man</strong>ual</q>) displays detailed documentation (also referred as man page or man file) for <code>bash</code> commands. It is a powerful resource to explore <code>bash</code> commands, understand their usage and flags. Some manual files are very long. You can scroll through the file using your keyboard’s down arrow or use the <code>Space</code> key to go forward one page and the b key to go backwards one page. When you are done reading, hit the key <code>q</code> to quit.</p>
-<div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Exercise
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Use the <code>-l</code> option for the <code>ls</code> command to display more information for each item in the directory. What is one piece of additional information this long format gives you that you don’t see with the bare <code>ls</code> command?</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-18" class="callout-18-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<section id="bash" class="level3" data-number="6.4.9">
-<h3 data-number="6.4.9" class="anchored" data-anchor-id="bash"><span class="header-section-number">6.4.9</span> Bash</h3>
-<pre><code>$ ls -l</code></pre>
-</section>
-<section id="output" class="level3" data-number="6.4.10">
-<h3 data-number="6.4.10" class="anchored" data-anchor-id="output"><span class="header-section-number">6.4.10</span> Output</h3>
-<pre><code>$ total 112
-$ -rwxrwx--- 1 taz23vul TSL_20 3797 Sep 22 12:21 metadata.csv
-$ drwxrwx--- 2 taz23vul TSL_20  667 Sep 22 12:22 SRA_reads
-$ drwxrwx--- 2 taz23vul TSL_20   33 Sep 22 12:36 untrimmed_fastq</code></pre>
-</section>
-</div>
-</div>
-</div>
-<p>No one can possibly learn all of these arguments, that’s what the manual page is for. You can (and should) refer to the manual page or other help files as needed.</p>
-<p>Let’s go into the <code>untrimmed_fastq</code> directory and see what is in there.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd untrimmed_fastq</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-F</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="ex">SRR097977.fastq*</span>  SRR098026.fastq<span class="pp">*</span></span></code></pre></div>
-<p>This directory contains two files with <code>.fastq</code> extensions. FASTQ is a format for storing information about sequencing reads and their quality. We will be learning more about FASTQ files in a later lesson.</p>
-</section>
-<section id="tab-completion" class="level3" data-number="6.4.11">
-<h3 data-number="6.4.11" class="anchored" data-anchor-id="tab-completion"><span class="header-section-number">6.4.11</span> Tab Completion</h3>
-<p>Typing out file or directory names can waste a lot of time and it’s easy to make typing mistakes. Instead we can use tab complete as a shortcut. When you start typing out the name of a directory or file, then hit the Tab key, the shell will try to fill in the rest of the directory or file name.</p>
-<p>Return to your home directory:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd</span></code></pre></div>
-<p>then enter (<code>&lt;tab&gt;</code> to hit the tabulation key):</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd she<span class="op">&lt;</span>tab<span class="op">&gt;</span></span></code></pre></div>
-<p>The shell will fill in the rest of the directory name for <code>shell_data</code> and auto-complete the command:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd shell_data</span></code></pre></div>
-<p>Now change directories to <code>untrimmed_fastq</code> in <code>shell_data</code></p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd untrimmed_fastq</span></code></pre></div>
-<p>Using tab complete can be very helpful. However, it will only auto-complete a file or directory name if you’ve typed enough characters to provide a unique identifier for the file or directory you are trying to access.</p>
-<p>For example, if we now try to list the files which names start with <code>SR</code> by using tab complete:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls SR<span class="op">&lt;</span>tab<span class="op">&gt;</span></span></code></pre></div>
-<p>The shell auto-completes your command to <code>SRR09</code>, because all file names in the directory begin with this prefix. When you hit Tab again, the shell will list the possible choices.</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls SRR09<span class="op">&lt;</span>tab<span class="op">&gt;&lt;</span>tab<span class="op">&gt;</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="ex">SRR097977.fastq</span>  SRR098026.fastq</span></code></pre></div>
-<p>Tab completion can also fill in the names of programs, which can be useful if you remember the beginning of a program name.</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pw<span class="op">&lt;</span>tab<span class="op">&gt;&lt;</span>tab<span class="op">&gt;</span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pwck</span>      pwconv    pwd       pwdx      pwunconv  pwmake  pwscore</span></code></pre></div>
-<p>Displays the name of every program that starts with <code>pw</code>.</p>
-</section>
-</section>
-<section id="summary-1" class="level2" data-number="6.5">
-<h2 data-number="6.5" class="anchored" data-anchor-id="summary-1"><span class="header-section-number">6.5</span> Summary</h2>
-<p>We now know how to move around our file system using the command line. This gives us an advantage over interacting with the file system through a GUI as it allows us to work on a remote server, carry out the same set of operations on a large number of files quickly, and opens up many opportunities for using bioinformatic software that is only available in command line versions.</p>
-<p>In the next few episodes, we’ll be expanding on these skills and seeing how using the command line shell enables us to make our workflow more efficient and reproducible.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Key points
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li>The shell gives you the ability to work more efficiently by using keyboard commands rather than a GUI.</li>
-<li>Useful commands for navigating your file system include: <code>ls</code>, <code>pwd</code>, and <code>cd</code>.</li>
-<li>Most commands take options (flags) which begin with a <code>-</code>.</li>
-<li>Tab completion can reduce errors from mistyping and make work more efficient in the shell.</li>
-</ul>
-</div>
-</div>
-</section>
 </section>
 
 </main> <!-- /main -->

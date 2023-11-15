@@ -1,11 +1,12 @@
 project:
   type: book
+  output-dir: docs
 
 output: html_document
 engine: knitr
 
 book:
-  title: "Shell genomics"
+  title: "Shell Genomics"
   #author: "Jane Doe"
   date: "8/9/2022"
   search: true

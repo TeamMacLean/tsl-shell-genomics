@@ -222,15 +222,19 @@ Use the `-l` option for the `ls` command to display more information for each it
 ## Solution
 
 ### Bash
-    $ ls -l
-    
+
+```         
+$ ls -l
+```
+
 ### Output
 
-	$ total 112
-	$ -rwxrwx--- 1 taz23vul TSL_20 3797 Sep 22 12:21 metadata.csv
-	$ drwxrwx--- 2 taz23vul TSL_20  667 Sep 22 12:22 SRA_reads
-	$ drwxrwx--- 2 taz23vul TSL_20   33 Sep 22 12:36 untrimmed_fastq
-
+```         
+$ total 112
+$ -rwxrwx--- 1 taz23vul TSL_20 3797 Sep 22 12:21 metadata.csv
+$ drwxrwx--- 2 taz23vul TSL_20  667 Sep 22 12:22 SRA_reads
+$ drwxrwx--- 2 taz23vul TSL_20   33 Sep 22 12:36 untrimmed_fastq
+```
 :::
 
 No one can possibly learn all of these arguments, that's what the manual page is for. You can (and should) refer to the manual page or other help files as needed.
