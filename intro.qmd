@@ -174,7 +174,7 @@ $ ls
 Our home directory is empty. Let's copy a directory called `shell_data` from the home directory of user `jegoussc` using the command `cp` for "**c**o**p**y". The flag `-r` stands for "recursive" and specifies that we want to copy the full content of the directory `shell_data`:
 
 ``` bash
-$ cp -r /hpc-home/jegoussc/shell_data/ /hpc-home/[username]/
+$ cp -r /tsl/data/shell_data/ /hpc-home/[username]/
 ```
 
 ### Change directory
@@ -193,7 +193,7 @@ $ pwd
 
 ### Flags
 
-Earlier, ee used the flag `-r` with the `cp` command. Let's have a look at the content of the directory now. We can make the `ls` output more comprehensible by using the **flag** `-F`, which tells `ls` to add a trailing `/` to the names of directories:
+Earlier, we used the flag `-r` with the `cp` command. Let's have a look at the content of the directory now. We can make the `ls` output more comprehensible by using the **flag** `-F`, which tells `ls` to add a trailing `/` to the names of directories:
 
 ``` bash
 $ ls -F
@@ -221,7 +221,9 @@ Use the `-l` option for the `ls` command to display more information for each it
 ::: {.callout-caution collapse="true" icon="false"}
 ## Solution
 
-    $ ls -l
+```         
+$ ls -l
+```
 :::
 
 No one can possibly learn all of these arguments, that's what the manual page is for. You can (and should) refer to the manual page or other help files as needed.

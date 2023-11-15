@@ -1,5 +1,6 @@
 project:
   type: book
+  output-dir: docs
 
 output: html_document
 engine: knitr
@@ -7,7 +8,7 @@ engine: knitr
 book:
   title: "Shell genomics"
   #author: "Jane Doe"
-  date: "8/9/2022"
+  date: "15/11/2023"
   search: true
   sharing: [twitter, facebook]
   chapters:
